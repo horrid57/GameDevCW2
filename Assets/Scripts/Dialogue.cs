@@ -7,6 +7,8 @@ public class Dialogue
 {
     public string name;
 
+    public float typingSpeed;
+
     [TextArea(3, 10)]
     public string[] sentences;
 }

@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
+
+    public Animator animator;
+
+    private float typingSpeed;
 
     private Queue<string> sentences;
 
@@ -15,6 +20,12 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue) {
+
+        animator.SetBool("IsOpen", true);
+        Time.timeScale = 0;
+
+        typingSpeed = dialogue.typingSpeed;
+
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -22,6 +33,8 @@ public class DialogueManager : MonoBehaviour
         foreach(string sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
+
+        DisplayNextSentence();
     }
 
     public void DisplayNextSentence() {
@@ -30,10 +43,20 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence) {
+        dialogueText.text = "";
+        foreach(char letter in sentence.ToCharArray()) {
+            dialogueText.text += letter;
+            yield return new WaitForSecondsRealtime(typingSpeed);
+        }
     }
 
     void EndDialogue() {
-        Debug.Log("End of conversation");
+        animator.SetBool("IsOpen", false);
+        Time.timeScale = 1;
     }
 }
