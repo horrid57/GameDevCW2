@@ -28,6 +28,7 @@ public class OldManDialogue : MonoBehaviour
         else if (stage == 1) {
             GetComponent<DialogueTrigger>().TriggerDialogue(2);
             stage = 2;
+            playerController.GiveLight();
         }
         else {
             GetComponent<DialogueTrigger>().TriggerDialogue(3);

@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
 
     bool hasDoll = false;
+    bool hasLight = false;
     int orbsHeld = 0;
 
     public float speed = 10;
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Light2D globalLight;
 
     private void Update() {
         Vector2 directionVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -31,6 +34,29 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             orbsHeld += 1;
         }
+        if (other.CompareTag("Cave")) {
+                GetComponent<Light2D>().enabled = true;
+                globalLight.enabled = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.CompareTag("Cave")) {
+            GetComponent<Light2D>().enabled = false;
+            globalLight.enabled = true;
+        }
+    }
+
+
+
+    public void GiveLight() {
+        hasLight = true;
+        GetComponent<Light2D>().pointLightOuterRadius = 3.5f;
+    }
+
+    public void TakeLight() {
+        hasLight = false;
+        GetComponent<Light2D>().pointLightOuterRadius = 1;
     }
 
 
