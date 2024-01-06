@@ -13,10 +13,10 @@ public class DialogueManager : MonoBehaviour
 
     private float typingSpeed;
 
-    private Queue<string> sentences;
+    private Queue<Sentence> sentences;
 
     void Start() {
-        sentences = new Queue<string>();
+        sentences = new Queue<Sentence>();
     }
 
     public void StartDialogue(Dialogue dialogue) {
@@ -24,13 +24,9 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         Time.timeScale = 0;
 
-        typingSpeed = dialogue.typingSpeed;
-
-        nameText.text = dialogue.name;
-
         sentences.Clear();
 
-        foreach(string sentence in dialogue.sentences) {
+        foreach(Sentence sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
         }
 
@@ -42,16 +38,17 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-        string sentence = sentences.Dequeue();
+        Sentence sentence = sentences.Dequeue();
+        nameText.text = sentence.name;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence) {
+    IEnumerator TypeSentence(Sentence sentence) {
         dialogueText.text = "";
-        foreach(char letter in sentence.ToCharArray()) {
+        foreach(char letter in sentence.text.ToCharArray()) {
             dialogueText.text += letter;
-            yield return new WaitForSecondsRealtime(typingSpeed);
+            yield return new WaitForSecondsRealtime(sentence.typingSpeed);
         }
     }
 

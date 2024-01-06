@@ -227,14 +227,181 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Mother
-    typingSpeed: 0.05
-    sentences:
-    - Help me, son.
-    - '*Cough*'
-    - I still need so much treatment and we have almost run out of money.
-    - The king is accepting audiences from citizens today.
-    - Please go and petition him for aid.
+  - sentences:
+    - typingSpeed: 0.05
+      name: Mother
+      text: help
+    - typingSpeed: 0.05
+      name: Mother
+      text: i need money
+    - typingSpeed: 0.05
+      name: Mother
+      text: for treatment *cough*
+    - typingSpeed: 0.02
+      name: Player
+      text: dont worry ill get some money no matter what it takes
+    - typingSpeed: 0.05
+      name: Mother
+      text: you should go and see the king
+--- !u!1 &157533567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 157533569}
+  - component: {fileID: 157533568}
+  - component: {fileID: 157533571}
+  - component: {fileID: 157533570}
+  m_Layer: 0
+  m_Name: Frog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &157533568
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157533567}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 249230eea0d1740f58df58df278ef6a8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &157533569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157533567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.49, y: 4.15, z: 0}
+  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1727099280}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &157533570
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157533567}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
+--- !u!50 &157533571
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157533567}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &245273087
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,12 +508,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Sage
-    typingSpeed: 0.02
-    sentences:
-    - HEY! What are you doing!?
-    - Why would you steal from me?
-    - Take that!
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!1 &262714469
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +936,7 @@ GameObject:
   - component: {fileID: 311602682}
   - component: {fileID: 311602681}
   - component: {fileID: 311602680}
+  - component: {fileID: 311602684}
   m_Layer: 0
   m_Name: Miner
   m_TagString: Untagged
@@ -913,6 +1085,27 @@ Transform:
   - {fileID: 810467985}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &311602684
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311602679}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 089c2134cf6154f409be603835a83026, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &385630758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1276,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1164,6 +1358,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 714200793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &519588592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,36 +1563,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Miner
-    typingSpeed: 0.03
-    sentences:
-    - Hey there! Could I ask you for a favour?
-    - There's a gem behind me that I found and I'd like to give it to my wife and
-      child.
-    - They live back out the way you came just past the old man. You might have seen
-      them on your journey.
-    - If you could deliver it for me I would be very grateful.
-  - name: Miner
-    typingSpeed: 0.03
-    sentences:
-    - Hey there!
-    - I found that gem you just picked up and I'd like to give it to my wife and
-      child.
-    - They live back out the way you came just past the old man. You might have seen
-      them.
-    - If you could deliver it for me I would be very grateful.
-  - name: Miner
-    typingSpeed: 0.03
-    sentences:
-    - My wife and child live back out the way you came just past the old man. You
-      might have seen them.
-    - If you could deliver the gem over there for me I would be very grateful.
-  - name: Miner
-    typingSpeed: 0.03
-    sentences:
-    - My wife and child live back out the way you came just past the old man. You
-      might have seen them.
-    - If you could deliver the gem you picked up for me I would be very grateful.
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!61 &572685667
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1549,6 +1797,7 @@ GameObject:
   - component: {fileID: 714200796}
   - component: {fileID: 714200797}
   - component: {fileID: 714200798}
+  - component: {fileID: 714200799}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1597,7 +1846,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54e307e02e8174335a835d5efe3c8380, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1726,11 +1975,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Player
-    typingSpeed: 0.02
-    sentences:
-    - This must be the little girl's toy knight.
-    - I'd better bring it back to her.
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!114 &714200798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1781,6 +2032,27 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!95 &714200799
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714200790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 481760003cb3eca4c8a091c4d2420982, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &718214154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2205,12 +2477,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Woman
-    typingSpeed: 0.02
-    sentences:
-    - HEY! What are you doing!?
-    - Why would you steal from me?
-    - You WILL regret this!
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!1 &944951347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,12 +3176,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Miner
-    typingSpeed: 0.02
-    sentences:
-    - HEY! What are you doing!?
-    - Why would you steal from me?
-    - You WILL regret this!
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!114 &1103474207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,30 +3415,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Sage
-    typingSpeed: 0.03
-    sentences:
-    - Excuse me young man! I was wondering if you could help me with something.
-    - There are three elemental orbs in the area and I would like you to go and fetch
-      them.
-    - I have this map but it must be incomplete because I can't understand it.
-    - While the map would help it isn't essential.
-    - Bring the orbs to me when you have found all of them.
-  - name: Sage
-    typingSpeed: 0.03
-    sentences:
-    - Bring the orbs to me when you have found all of them.
-  - name: Sage
-    typingSpeed: 0.03
-    sentences:
-    - Excellent! Thank you young man!
-    - As a token of my gratitude here is a light orb which will illumiate your path
-      in darkness.
-    - Go forth in light.
-  - name: Sage
-    typingSpeed: 0.03
-    sentences:
-    - Go forth in light.
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!61 &1333705959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3641,6 +3931,138 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.07, y: 0.07}
+  m_EdgeRadius: 0
+--- !u!1 &1727099279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727099280}
+  - component: {fileID: 1727099282}
+  - component: {fileID: 1727099281}
+  - component: {fileID: 1727099283}
+  m_Layer: 0
+  m_Name: DialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1727099280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727099279}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 157533569}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1727099281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727099279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be967303106e8147bfd40f331c52e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1727099282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727099279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e29da1b793e8b341a380b488dc81e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+  - sentences:
+    - typingSpeed: 0.02
+      name: King
+      text: You have stolen from multiple people
+    - typingSpeed: 0.02
+      name: King
+      text: I sentence you to death
+  - sentences:
+    - typingSpeed: 0.02
+      name: King
+      text: I have recieved a report that you stole from someone on your way here.
+    - typingSpeed: 0.02
+      name: King
+      text: I sentence you to 4 years in the dungeon
+  - sentences:
+    - typingSpeed: 0.02
+      name: King
+      text: Why should I help you when you seem to refuse to help others
+    - typingSpeed: 0.02
+      name: King
+      text: Be on your way and don't come back until you have changed your ways
+  - sentences:
+    - typingSpeed: 0.02
+      name: King
+      text: I have been told that you were very helpful to other people today
+    - typingSpeed: 0.02
+      name: King
+      text: For your service to the realm I will assist you
+--- !u!61 &1727099283
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727099279}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006039977, y: -0.099658065}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.30541372, y: 0.22689526}
   m_EdgeRadius: 0
 --- !u!1 &1737766868
 GameObject:
@@ -4242,42 +4664,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-  - name: Woman
-    typingSpeed: 0.03
-    sentences:
-    - Hello! Can you help me?
-    - My daughter lost her favourite toy in the field down there.
-    - It's a knight doll that her father made her.
-    - I would go myself but she is refusing to go and I can't leave her here alone
-      because of the bandits.
-    - I would be very grateful if you could get it for me.
-  - name: Woman
-    typingSpeed: 0.02
-    sentences:
-    - The doll knight is in the field just down there.
-    - Bring it back here when you have got it.
-  - name: Irritated Woman
-    typingSpeed: 0.02
-    sentences:
-    - Please go and get the doll...
-  - name: Woman
-    typingSpeed: 0.03
-    sentences:
-    - Oh my! Thank you so much! I knew I could count on you!
-    - I don't want you to leave empty handed. Here's a section of a map my daughter
-      found yesterday.
-    - I have no idea what it's for but I just have a feeling it will be useful to
-      you!
-  - name: Woman
-    typingSpeed: 0.02
-    sentences:
-    - Thank you so much for getting the doll. We are both so grateful.
-  - name: Woman
-    typingSpeed: 0.02
-    sentences:
-    - Oh My! Is this from my husband? What a sweetheart!
-    - If you're going to see the kind there is a shortcut behind my house. I'll open
-      the way for you.
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+  - sentences:
+    - typingSpeed: 0
+      name: 
+      text: 
+    - typingSpeed: 0
+      name: 
+      text: 
 --- !u!61 &1997090196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4351,3 +4785,4 @@ SceneRoots:
   - {fileID: 290460946}
   - {fileID: 311602683}
   - {fileID: 1649192109}
+  - {fileID: 157533569}

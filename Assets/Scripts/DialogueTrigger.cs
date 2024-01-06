@@ -30,6 +30,11 @@ public class DialogueTrigger : MonoBehaviour
     Miner #2 - Future interactions if player hasn't picked up gem
     Miner #3 - Future interactions if player has picked up gem
 
+    King #0 - Executed for stealing
+    King #1 - Imprisoned for stealing
+    King #2 - You have done nothing to deserve help
+    King #3 - Excellent citizen we shall help
+
     */
 
 

@@ -14,18 +14,39 @@ public class PlayerController : MonoBehaviour
     int orbsHeld = 0;
     int peopleStolenFrom = 0;
     int peopleHelped = 0;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     public float speed = 10;
+
+    bool idleThisFrame = true;
+    bool idleLastFrame = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Light2D globalLight;
 
+    private void Start() {
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update() {
+        idleLastFrame = idleThisFrame;
         Vector2 directionVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (directionVector.magnitude > 1) {
             directionVector.Normalize();
         }
         rb.velocity = directionVector * speed;
+
+        idleThisFrame = directionVector.magnitude == 0;
+
+        animator.SetBool("Idle", idleThisFrame && idleLastFrame);
+        animator.SetFloat("Vertical", directionVector.y);
+        animator.SetFloat("Horizontal", directionVector.x);
+
+        spriteRenderer.flipX = directionVector.x < 0;
+        Debug.Log(directionVector.x < 0);
+        
     }
 
 
