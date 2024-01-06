@@ -6,10 +6,19 @@ public class MotherChildDialogueScript : MonoBehaviour
 {
     int interactionNumber = 0;
     int stage = 0; // 0 - before doll found // 1 - giving doll // 2 - after doll given 
+    bool gemDelivered = false;
     
     private void OnTriggerEnter2D(Collider2D other) {
+        if (!other.CompareTag("Player")) {
+            return;
+        }
         // Go to stage 1 if player has doll in inventory
         PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+        if (playerController != null && playerController.HasGem() && !gemDelivered) {
+            GetComponent<DialogueTrigger>().TriggerDialogue(5);
+            gemDelivered = true;
+            return;
+        } 
         if (playerController != null && playerController.HasDoll()) {
             stage = 1;
             playerController.GiveDoll();

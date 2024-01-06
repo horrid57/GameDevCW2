@@ -18,11 +18,17 @@ public class DialogueTrigger : MonoBehaviour
     Woman #2 - irritated that player keeps approaching so very short message
     Woman #3 - Doll is returned, woman is thankful, gives map segment that daughter found in return
     Woman #4 - Generic thankful message
+    Woman #5 - Thanks for the gem, here is a shortcut to the castle
 
     Sage #0 - first polite encounter to explain orbs and incomplete non-essential map
     Sage #1 - "bring the orbs to me" type
     Sage #2 - Thank you message + giving of light orb
     Sage #3 - generic thankful message "go forth in light" or something
+
+    Miner #0 - First interaction when player hasn't picked up gem
+    Miner #1 - First interaction if player has picked up gem
+    Miner #2 - Future interactions if player hasn't picked up gem
+    Miner #3 - Future interactions if player has picked up gem
 
     */
 

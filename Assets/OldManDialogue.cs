@@ -8,6 +8,9 @@ public class OldManDialogue : MonoBehaviour
     int stage = 0; // 0 - before doll found // 1 - giving doll // 2 - after doll given 
     
     private void OnTriggerEnter2D(Collider2D other) {
+        if (!other.CompareTag("Player")) {
+            return;
+        }
         // Go to stage 1 if player has all orbs in inventory and first time approaching with all of them
         PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
         if (playerController != null && playerController.OrbsHeld() == 3) {
@@ -20,6 +23,10 @@ public class OldManDialogue : MonoBehaviour
             interactionNumber += 1;
             if (interactionNumber == 1) {
                 GetComponent<DialogueTrigger>().TriggerDialogue(0);
+                playerController.sageMissionStarted = true;
+                if (playerController.hasMap) {
+                    FindFirstObjectByType<OrbManager>().StartWaypoints();
+                }
             }
             else {
                 GetComponent<DialogueTrigger>().TriggerDialogue(1);

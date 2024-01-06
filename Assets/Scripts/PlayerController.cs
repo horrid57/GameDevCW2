@@ -8,7 +8,12 @@ public class PlayerController : MonoBehaviour
 
     bool hasDoll = false;
     bool hasLight = false;
+    bool hasGem = false;
+    public bool sageMissionStarted = false;
+    public bool hasMap = false;
     int orbsHeld = 0;
+    int peopleStolenFrom = 0;
+    int peopleHelped = 0;
 
     public float speed = 10;
 
@@ -35,8 +40,12 @@ public class PlayerController : MonoBehaviour
             orbsHeld += 1;
         }
         if (other.CompareTag("Cave")) {
-                GetComponent<Light2D>().enabled = true;
-                globalLight.enabled = false;
+            GetComponent<Light2D>().enabled = true;
+            globalLight.enabled = false;
+        }
+        if (other.CompareTag("Gem")) {
+            hasGem = true;
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -51,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     public void GiveLight() {
         hasLight = true;
+        peopleHelped += 1;
         GetComponent<Light2D>().pointLightOuterRadius = 3.5f;
     }
 
@@ -64,10 +74,40 @@ public class PlayerController : MonoBehaviour
         return hasDoll;
     }
     public void GiveDoll() {
-        hasDoll = false;
+        if (hasDoll) {
+            hasDoll = false;
+            peopleHelped += 1;
+            hasMap = true;
+            if (sageMissionStarted) {
+                FindFirstObjectByType<OrbManager>().StartWaypoints();
+            }
+        }
     }
 
     public int OrbsHeld() {
         return orbsHeld;
+    }
+
+    public bool HasGem() {
+        return hasGem;
+    }
+
+    public void GiveGem() {
+        if (hasGem) {
+            hasGem = false;
+            peopleHelped += 1;
+        }
+    }
+
+    public void AddMoney(int value) {
+        peopleStolenFrom += 1;
+    }
+
+    public int GetPeopleHelped() {
+        return peopleHelped;
+    }
+
+    public int getPeopleStolenFrom() {
+        return peopleStolenFrom;
     }
 }
