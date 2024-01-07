@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     int peopleHelped = 0;
     Animator animator;
     SpriteRenderer spriteRenderer;
+    int money = 0;
 
     public float speed = 10;
 
@@ -122,6 +123,8 @@ public class PlayerController : MonoBehaviour
 
     public void AddMoney(int value) {
         peopleStolenFrom += 1;
+        money += value;
+        FindFirstObjectByType<CoinUI>().UpdateCount(money);
     }
 
     public int GetPeopleHelped() {
