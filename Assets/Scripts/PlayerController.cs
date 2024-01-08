@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", directionVector.y);
         animator.SetFloat("Horizontal", directionVector.x);
 
-        spriteRenderer.flipX = directionVector.x < 0;
+        spriteRenderer.flipX = ((Input.mousePosition.x / Screen.width) - 0.5f < 0 && animator.GetBool("IsAttacking") ) || directionVector.x < 0;
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -62,8 +62,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("IsAttacking", true);
 
             // Optionally, use the player's current direction for the attack direction
-            animator.SetFloat("AttackX", directionVector.x);
-            animator.SetFloat("AttackY", directionVector.y);
+            animator.SetFloat("AttackX", (Input.mousePosition.x / Screen.width) * 2 - 1);
+            animator.SetFloat("AttackY", (Input.mousePosition.y / Screen.height) * 2 - 1);
+
+            
 
             StartCoroutine(ResetAttack());
 
