@@ -83,12 +83,12 @@ public class PlayerController : MonoBehaviour
     public void GiveLight() {
         hasLight = true;
         peopleHelped += 1;
-        GetComponent<Light2D>().pointLightOuterRadius = 3.5f;
+        GetComponent<Light2D>().pointLightOuterRadius = 1.5f;
     }
 
     public void TakeLight() {
         hasLight = false;
-        GetComponent<Light2D>().pointLightOuterRadius = 1;
+        GetComponent<Light2D>().pointLightOuterRadius = 0.4f;
     }
 
 
