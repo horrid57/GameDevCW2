@@ -8,6 +8,7 @@ TagManager:
   - Orb
   - Cave
   - Gem
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Decoration
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 

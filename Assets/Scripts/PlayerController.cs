@@ -26,9 +26,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Light2D globalLight;
 
+    public int maxHealth = 3;
+    public int currentHealth;
+    public float attackRange = 1.0f;
+    public LayerMask enemyLayers;
+    public int attackDamage = 1;
+
     private void Start() {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        currentHealth = maxHealth;
     }
 
     private void Update() {
@@ -45,9 +52,76 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", directionVector.y);
         animator.SetFloat("Horizontal", directionVector.x);
 
-        spriteRenderer.flipX = directionVector.x < 0;        
+        spriteRenderer.flipX = directionVector.x < 0;
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+
+            // Set the attacking flag
+            animator.SetBool("IsAttacking", true);
+
+            // Optionally, use the player's current direction for the attack direction
+            animator.SetFloat("AttackX", directionVector.x);
+            animator.SetFloat("AttackY", directionVector.y);
+
+            StartCoroutine(ResetAttack());
+
+            Debug.Log("Player attacked!");
+        }
+
     }
 
+    IEnumerator ResetAttack()
+    {
+        // Wait for a set amount of time
+        yield return new WaitForSeconds(0.1f); // Adjust time as needed
+
+        // Turn off the attacking flag
+        animator.SetBool("IsAttacking", false);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        StartCoroutine(FlashSprite(spriteRenderer, 1.0f, 0.5f));
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    IEnumerator FlashSprite(SpriteRenderer sprite, float duration, float blinkTime)
+    {
+        float endTime = Time.time + duration;
+        while (Time.time < endTime)
+        {
+            sprite.color = Color.red; // Or any color to indicate damage
+            yield return new WaitForSeconds(blinkTime);
+            sprite.color = Color.white; // Restore original color
+            yield return new WaitForSeconds(blinkTime);
+        }
+    }
+
+    void Die()
+    {
+        // Handle player death here (e.g., show game over screen, disable player movement)
+        UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("Player died!");
+    }
+
+    public void Attack()
+    {
+        // Detect enemies in range of attack
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayers);
+
+        // Apply damage to those enemies
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<EnemyAI>().TakeDamage(attackDamage);
+        }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Doll")) {
@@ -76,17 +150,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-
     public void GiveLight() {
         hasLight = true;
         peopleHelped += 1;
-        GetComponent<Light2D>().pointLightOuterRadius = 1.5f;
+        GetComponent<Light2D>().pointLightOuterRadius = 3.5f;
     }
 
     public void TakeLight() {
         hasLight = false;
-        GetComponent<Light2D>().pointLightOuterRadius = 0.4f;
+        GetComponent<Light2D>().pointLightOuterRadius = 1;
     }
 
 
