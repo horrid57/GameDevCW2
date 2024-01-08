@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class BoxColliderTriggerEnterDialogue : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         if (!other.CompareTag("Player")) {
             return;
         }
-        GetComponent<DialogueTrigger>().TriggerDialogue();
+        FindFirstObjectByType<Prompt>().PromptTalk();
+        if (Input.GetKey(KeyCode.E)) {
+            GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        FindFirstObjectByType<Prompt>().HidePrompt();
     }
 }

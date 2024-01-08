@@ -12,7 +12,8 @@ public class MinerChestSteal : MonoBehaviour
         if (!other.CompareTag("Player") || value == 0) {
             return;
         }
-        if (Input.GetKey(KeyCode.E)) {
+        FindFirstObjectByType<Prompt>().PromptSteal();
+        if (Input.GetKey(KeyCode.R)) {
             GetComponent<DialogueTrigger>().TriggerDialogue();
             other.GetComponent<PlayerController>().AddMoney(value);
             other.GetComponent<PlayerController>().TakeLight();
@@ -30,5 +31,6 @@ public class MinerChestSteal : MonoBehaviour
         if (value == 0) {
             transform.root.gameObject.SetActive(false);
         }
+        FindFirstObjectByType<Prompt>().HidePrompt();
     }
 }
