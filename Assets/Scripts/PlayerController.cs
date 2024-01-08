@@ -32,10 +32,13 @@ public class PlayerController : MonoBehaviour
     public LayerMask enemyLayers;
     public int attackDamage = 1;
 
+    public EndingManager endingManager;
+
     private void Start() {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
+        endingManager = GameObject.Find("EndingManager").GetComponent<EndingManager>();
     }
 
     private void Update() {
@@ -107,9 +110,10 @@ public class PlayerController : MonoBehaviour
 
     void Die()
     {
-        // Handle player death here (e.g., show game over screen, disable player movement)
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Debug.Log("Player died!");
+        Time.timeScale = 0;
+        endingManager.ShowEnding(4);
     }
 
     public void Attack()
