@@ -45,9 +45,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", directionVector.y);
         animator.SetFloat("Horizontal", directionVector.x);
 
-        spriteRenderer.flipX = directionVector.x < 0;
-        Debug.Log(directionVector.x < 0);
-        
+        spriteRenderer.flipX = directionVector.x < 0;        
     }
 
 
